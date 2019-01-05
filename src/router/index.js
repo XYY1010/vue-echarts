@@ -33,6 +33,11 @@ export default new Router({
           path: 'fix_investment',
           name: 'fix_investment',
           component:() => import('../pages/investment/fixinvestment.vue')
+        },
+        {
+          path: 'energy',
+          name: 'energy',
+          component:() => import('../pages/investment/energy.vue')
         }
       ]
     }
