@@ -1,4 +1,4 @@
-# vue-echart
+# vue-charts
 
 > A Vue.js project
 
