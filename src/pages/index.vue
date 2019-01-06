@@ -9,7 +9,7 @@
                             <span slot="title">
                                 <a-icon :type="subMenu.icon"/>{{subMenu.name}}
                             </span>
-                        <a-menu-item v-for="menuItem in subMenu.menuItems" :key="menuItem.id">
+                        <a-menu-item v-for="menuItem in subMenu.menuItems" :key="menuItem.id" :disabled="menuItem.disabled">
                             <router-link :to="menuItem.link">{{menuItem.name}}</router-link>
                         </a-menu-item>
                     </a-sub-menu>

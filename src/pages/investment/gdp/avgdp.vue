@@ -37,7 +37,7 @@ export default {
             text: '2007-2017年宁波、杭州、绍兴、金华、温州、嘉兴等市人均生产总值'
           },
           color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed', '#8B4726',
-                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0', '#8B8B00'],
+                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#8B8B00'],
           tooltip : { trigger: 'axis' },
           //图例--折线提示提示
           legend: {
@@ -130,14 +130,50 @@ export default {
         baseOption: {
           timeline: {
             axisType: 'category',
+            orient: 'vertical',
             autoPlay: true,
             playInterval: 1000,
+            inverse: true,
             data: [],
-            label: {
-                formatter : function(s) {
-                    return (new Date(s)).getFullYear();
+            left: null,
+                right: 600,
+                top: 70,
+                bottom: 10,
+                width: 55,
+                height: null,
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#999'
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                symbol: 'none',
+                lineStyle: {
+                    color: '#555'
+                },
+                checkpointStyle: {
+                    color: '#bbb',
+                    borderColor: '#777',
+                    borderWidth: 2
+                },
+                controlStyle: {
+                    showNextBtn: false,
+                    showPrevBtn: false,
+                    normal: {
+                        color: '#666',
+                        borderColor: '#666'
+                    },
+                    emphasis: {
+                        color: '#aaa',
+                        borderColor: '#aaa'
+                    }
                 }
-            }
         },
         title: {
             text: '浙江省各地级市人均生产总值比例',
@@ -158,8 +194,8 @@ export default {
             {
                 name: '人均 GDP 占比',
                 type: 'pie',
-                center: ['50%', '50%'],
-                radius: '50%',
+                center: ['20%', '60%'],
+                radius: '70%',
                 z: 100
             }
         ]
@@ -168,111 +204,67 @@ export default {
       {
          title: {text: '2007年浙江省各地级市人均生产总值比例'},
          series: [
-             {data: [
-                 {name: '第一产业', value: 30},
-                 {name: '第二产业', value: 30},
-                 {name: '第三产业', value: 40}
-             ]}
+             {data: []}
          ]
      },
      {
         title: {text: '2008年浙江省各地级市人均生产总值比例'},
         series: [
-            {data: [
-                {name: '第一产业', value: 30},
-                {name: '第二产业', value: 30},
-                {name: '第三产业', value: 40}
-            ]}
+            {data: []}
         ]
     },
     {
        title: {text: '2009年浙江省各地级市人均生产总值比例'},
        series: [
-           {data: [
-               {name: '第一产业', value: 30},
-               {name: '第二产业', value: 30},
-               {name: '第三产业', value: 40}
-           ]}
+           {data: []}
        ]
    },
    {
       title: {text: '2010年浙江省各地级市人均生产总值比例'},
       series: [
-          {data: [
-              {name: '第一产业', value: 30},
-              {name: '第二产业', value: 30},
-              {name: '第三产业', value: 40}
-          ]}
+          {data: []}
       ]
   },
   {
      title: {text: '2011年浙江省各地级市人均生产总值比例'},
      series: [
-         {data: [
-             {name: '第一产业', value: 30},
-             {name: '第二产业', value: 30},
-             {name: '第三产业', value: 40}
-         ]}
+         {data: []}
      ]
  },
  {
     title: {text: '2012年浙江省各地级市人均生产总值比例'},
     series: [
-        {data: [
-            {name: '第一产业', value: 30},
-            {name: '第二产业', value: 30},
-            {name: '第三产业', value: 40}
-        ]}
+        {data: []}
     ]
 },
 {
    title: {text: '2013年浙江省各地级市人均生产总值比例'},
    series: [
-       {data: [
-           {name: '第一产业', value: 30},
-           {name: '第二产业', value: 30},
-           {name: '第三产业', value: 40}
-       ]}
+       {data: []}
    ]
 },
 {
    title: {text: '2014年浙江省各地级市人均生产总值比例'},
    series: [
-       {data: [
-           {name: '第一产业', value: 30},
-           {name: '第二产业', value: 30},
-           {name: '第三产业', value: 40}
-       ]}
+       {data: []}
    ]
 },
 {
    title: {text: '2015年浙江省各地级市人均生产总值比例'},
    series: [
-       {data: [
-           {name: '第一产业', value: 30},
-           {name: '第二产业', value: 30},
-           {name: '第三产业', value: 40}
-       ]}
+       {data: []}
    ]
 },
 {
    title: {text: '2016年浙江省各地级市人均生产总值比例'},
    series: [
-       {data: [
-           {name: '第一产业', value: 30},
-           {name: '第二产业', value: 30},
-           {name: '第三产业', value: 40}
-       ]}
+       {data: []}
    ]
 },
 {
    title: {text: '2017年浙江省各地级市人均生产总值比例'},
    series: [
-       {data: [
-           {name: '第一产业', value: 30},
-           {name: '第二产业', value: 30},
-           {name: '第三产业', value: 40}
-       ]}
+       {data: []}
    ]
 }
     ]

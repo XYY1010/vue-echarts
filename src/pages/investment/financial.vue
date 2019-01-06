@@ -105,7 +105,7 @@ export default {
         series: [
             {
                 name: '财政总收入',
-                type: 'bar',
+                type: 'line',
                 barGap: 0,
                 label: {},
                 data: []

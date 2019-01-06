@@ -35,21 +35,25 @@ export default {
                 {
                     id: 21,
                     name: 'GDP 数据',
+                    disabled: 'true',
                     link: '/service-foreigntrade/gdp'
                 },
                 {
                     id: 22,
                     name: '服务业运行数据',
+                    disabled: 'true',
                     link: '/service-foreigntrade/service_operation'
                 },
                 {
                     id: 23,
                     name: '贸易数据',
+                    disabled: 'true',
                     link: '/service-foreigntrade/trade'
                 },
                 {
                     id: 24,
                     name: '对外经济数据',
+                    disabled: 'true',
                     link: '/service-foreigntrade/foreigntrade'
                 }
             ]
@@ -62,19 +66,23 @@ export default {
                 {
                     id: 31,
                     name: 'GDP 数据',
+                    disabled: 'true',
                     link: '/income-price/gdp'
                 },{
                     id: 32,
                     name: '价格指数',
+                    disabled: 'true',
                     link: '/income-price/price'
                 },
                 {
                     id: 33,
                     name: '民生收支数据',
+                    disabled: 'true',
                     link: '/income-price/income_expenses'
                 },{
                     id: 34,
                     name: '社保劳动工资数据',
+                    disabled: 'true',
                     link: '/income-price/social_security'
                 }
             ]

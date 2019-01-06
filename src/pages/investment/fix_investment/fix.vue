@@ -66,10 +66,7 @@ export default {
                 axisPointer: {
                     type: 'shadow',
                     label: {
-                        show: true,
-                        formatter: function (params) {
-                            return params.value.replace('\n', '');
-                        }
+                        show: true
                     }
                 }
             }
@@ -99,6 +96,7 @@ export default {
             {
                 name: 'GDP占比',
                 type: 'pie',
+                color: ['#6495ed', '#ff69b4','#ba55d3'],
                 center: ['75%', '35%'],
                 radius: '28%',
                 z: 100
@@ -354,7 +352,7 @@ export default {
 
       for (var i = 0; i < this.years.length; i++) {
         var sumPI = 0;
-        var sumSI = 0
+        var sumSI = 0;
         var sumFI = 0;
         for (var j = 0; j < this.data.length; j++) {
           if (this.data[j].year == this.years[i] && this.data[j].city != "浙东北" && this.data[j].city != "浙西南") {
