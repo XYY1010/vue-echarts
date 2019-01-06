@@ -1,6 +1,7 @@
 <template>
   <div>
     <div style="min-height: 400px;" ref="echart1"></div>
+    <div style="min-height: 300px;" ref="echart2"></div>
   </div>
 </template>
 
@@ -16,7 +17,7 @@ export default {
       city: [],
       years: [],
       chart: null,
-      option: {
+      option1: {
           title: {
             x: 'center',                 // 水平安放位置，默认为左对齐，可选为：
             // 'center' ¦ 'left' ¦ 'right'
@@ -36,7 +37,7 @@ export default {
             text: '2007-2017年宁波、杭州、绍兴、金华、温州、嘉兴等市人均生产总值'
           },
           color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
-                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0'],
+                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0', '#191970'],
           tooltip : { trigger: 'axis' },
           //图例--折线提示提示
           legend: {
@@ -167,74 +168,74 @@ export default {
     },
     initChart1() {
       for (var i = 0; i < this.years.length; i++) {
-        this.option.xAxis.data.push(this.years[i] + '年');
+        this.option1.xAxis.data.push(this.years[i] + '年');
       }
       for (var i = 0; i < this.city.length; i++) {
-        this.option.legend.data.push(this.city[i]);
+        this.option1.legend.data.push(this.city[i]);
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "杭州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[0].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[0].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "宁波市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[1].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[1].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "嘉兴市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[2].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[2].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "湖州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[3].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[3].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "绍兴市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[4].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[4].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "舟山市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[5].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[5].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "温州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[6].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[6].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "金华市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[7].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[7].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "其中：义乌市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[8].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[8].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "衢州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[9].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[9].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "台州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[10].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[10].data.push(this.financial_data[i].gdp_average);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
         if (this.financial_data[i].city == "丽水市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[11].data.push(this.financial_data[i].gdp_average);
+          this.option1.series[11].data.push(this.financial_data[i].gdp_average);
         }
       }
       this.chart = this.$echarts.init(this.$refs.echart1);
       // 把配置和数据放这里
-      this.chart.setOption(this.option)
+      this.chart.setOption(this.option1)
     },
     beforeDestroy() {
       if (!this.chart) { return }

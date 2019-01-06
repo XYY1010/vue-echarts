@@ -56,7 +56,7 @@ export default {
             text: '2007-2017年宁波、杭州、绍兴、金华、温州、嘉兴等市生产总值'
           },
           color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
-                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0'],
+                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0', '#191970'],
           tooltip : { trigger: 'axis' },
           //图例--折线提示提示
           legend: {
@@ -155,6 +155,8 @@ export default {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
+        color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
+                '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#1E90FF', '#191970'],
         legend: {
             type: 'scroll',
             orient: 'vertical',

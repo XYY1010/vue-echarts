@@ -39,7 +39,7 @@ export default {
             }
         },
         title: {
-            text: '固定投资相关数据',
+            text: '浙江省各地级市固定投资相关数据',
             subtext: '单位：亿元'
         },
         color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
@@ -52,7 +52,7 @@ export default {
             }
         ],
         legend: {
-            x: 'right',
+            x: '40%',
             data: ['固定资产投资', '房地产开发投资', '新增固定资产', '商品房屋销售额', '第一产业', '第二产业', '第三产业'],
             selected: {
             }
@@ -107,7 +107,7 @@ export default {
     },
     options: [
       {
-         title: {text: '2007年固定投资相关数据'},
+         title: {text: '2007年浙江省各地级市固定投资相关数据'},
          series: [
              {data: []},
              {data: []},
@@ -124,7 +124,7 @@ export default {
          ]
      },
      {
-        title: {text: '2008年固定投资相关数据'},
+        title: {text: '2008年浙江省各地级市固定投资相关数据'},
         series: [
             {data: []},
             {data: []},
@@ -141,7 +141,7 @@ export default {
         ]
     },
     {
-       title: {text: '2009年固定投资相关数据'},
+       title: {text: '2009年浙江省各地级市固定投资相关数据'},
        series: [
            {data: []},
            {data: []},
@@ -158,7 +158,7 @@ export default {
        ]
    },
    {
-      title: {text: '2010年固定投资相关数据'},
+      title: {text: '2010年浙江省各地级市固定投资相关数据'},
       series: [
           {data: []},
           {data: []},
@@ -175,7 +175,7 @@ export default {
       ]
   },
   {
-     title: {text: '2011年固定投资相关数据'},
+     title: {text: '2011年浙江省各地级市固定投资相关数据'},
      series: [
          {data: []},
          {data: []},
@@ -192,7 +192,7 @@ export default {
      ]
  },
  {
-    title: {text: '2012年固定投资相关数据'},
+    title: {text: '2012年浙江省各地级市固定投资相关数据'},
     series: [
         {data: []},
         {data: []},
@@ -209,7 +209,7 @@ export default {
     ]
 },
 {
-   title: {text: '2013年固定投资相关数据'},
+   title: {text: '2013年浙江省各地级市固定投资相关数据'},
    series: [
        {data: []},
        {data: []},
@@ -226,7 +226,7 @@ export default {
    ]
 },
 {
-   title: {text: '2014年固定投资相关数据'},
+   title: {text: '2014年浙江省各地级市固定投资相关数据'},
    series: [
        {data: []},
        {data: []},
@@ -243,7 +243,7 @@ export default {
    ]
 },
 {
-   title: {text: '2015年固定投资相关数据'},
+   title: {text: '2015年浙江省各地级市固定投资相关数据'},
    series: [
        {data: []},
        {data: []},
@@ -260,7 +260,7 @@ export default {
    ]
 },
 {
-   title: {text: '2016年固定投资相关数据'},
+   title: {text: '2016年浙江省各地级市固定投资相关数据'},
    series: [
        {data: []},
        {data: []},
@@ -277,7 +277,7 @@ export default {
    ]
 },
 {
-   title: {text: '2017年固定投资相关数据'},
+   title: {text: '2017年浙江省各地级市固定投资相关数据'},
    series: [
        {data: []},
        {data: []},
