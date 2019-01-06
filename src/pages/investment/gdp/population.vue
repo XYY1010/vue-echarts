@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div style="height:400px;" ref="echart"></div>
+    <div style="min-height:700px;" ref="echart"></div>
   </div>
 </template>
 
 <script>
-import ZJ from '../../../db/zhejiang.json'
+import ZJ from '../../../db/zhejiang.json';
 export default {
   name: 'population',
   mounted(){

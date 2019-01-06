@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="text-align: left;">
+    <div style="text-align: center;">
       <a-radio-group defaultValue="杭州市" size="large" @change="handleChange" buttonStyle="solid">
         <a-radio-button value="杭州市">杭州市</a-radio-button>
         <a-radio-button value="宁波市">宁波市</a-radio-button>
@@ -16,8 +16,8 @@
         <a-radio-button value="义乌市">义乌市</a-radio-button>
       </a-radio-group>
     </div>
-    <div style="text-align: center;">
-      <div style="min-height: 500px; width: 1000px; margin-top:20px;" ref="echart1"></div>
+    <div>
+      <div style="min-height: 700px; margin-top:20px;" ref="echart1"></div>
     </div>
   </div>
 </template>
@@ -36,7 +36,6 @@ export default {
       hz_localexpenditure: [],
       city: "杭州市",
       lableOption: {
-        normal: {
             show: true,
             position: 'insideBottom',
             distance: 15,
@@ -44,13 +43,12 @@ export default {
             verticalAlign: 'middle',
             rotate: 90,
             formatter: '{c}  {name|{a}}',
-            fontSize: 16,
+            fontSize: 14,
             rich: {
                 name: {
                     textBorderColor: '#fff'
                 }
             }
-        }
       },
       option1: {
         title: {
@@ -85,6 +83,11 @@ export default {
             }
         },
         calculable: true,
+        dataZoom: [
+            {
+                type: 'inside'
+            }
+        ],
         xAxis: [
             {
                 type: 'category',
@@ -104,19 +107,19 @@ export default {
                 name: '财政总收入',
                 type: 'bar',
                 barGap: 0,
-                label: this.labelOption,
+                label: {},
                 data: []
             },
             {
                 name: '地方财政收入',
                 type: 'bar',
-                label: this.labelOption,
+                label: {},
                 data: []
             },
             {
                 name: '地方财政支出',
                 type: 'bar',
-                label: this.labelOption,
+                label: {},
                 data: []
             }
         ]
@@ -157,7 +160,7 @@ export default {
               console.log('通信失败，请稍后再试');
               this.$notification.open({
                 message: '错误',
-                description: '无法相关 GDP 数据',
+                description: '无法相关财政数据',
               });
         });
     },
@@ -165,6 +168,9 @@ export default {
       this.option1.series[0].data = [];
       this.option1.series[1].data = [];
       this.option1.series[2].data = [];
+      this.option1.series[0].label = this.labelOption;
+      this.option1.series[1].label = this.labelOption;
+      this.option1.series[2].label = this.labelOption;
       for (var i = 0; i < this.hz_totalrevenue.length; i++) {
         this.option1.series[0].data.push(this.hz_totalrevenue[i]);
       }

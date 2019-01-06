@@ -1,7 +1,22 @@
 <template>
   <div>
-    <div style="min-height: 400px; width: 800px;" ref="echart1"></div>
-    <div style="min-height: 400px; width: 800px;" ref="echart2"></div>
+    <div style="min-height: 400px;" ref="echart1"></div>
+    <div style="min-height: 300px;" ref="echart2"></div>
+    <div style="text-align: center;">
+      <a-radio-group defaultValue="2017" @change="handleChange" buttonStyle="solid">
+        <a-radio-button value="2007">2007</a-radio-button>
+        <a-radio-button value="2008">2008</a-radio-button>
+        <a-radio-button value="2009">2009</a-radio-button>
+        <a-radio-button value="2010">2010</a-radio-button>
+        <a-radio-button value="2011">2011</a-radio-button>
+        <a-radio-button value="2012">2012</a-radio-button>
+        <a-radio-button value="2013">2013</a-radio-button>
+        <a-radio-button value="2014">2014</a-radio-button>
+        <a-radio-button value="2015">2015</a-radio-button>
+        <a-radio-button value="2016">2016</a-radio-button>
+        <a-radio-button value="2017">2017</a-radio-button>
+      </a-radio-group>
+    </div>
   </div>
 </template>
 
@@ -13,11 +28,15 @@ export default {
   },
   data() {
     return {
+      legendData: [],
+      seriesData: [],
+      selected: {},
       financial_data: [],
       city: [],
       years: [],
+      year: 2007,
       chart: null,
-      option: {
+      option1: {
           title: {
             x: 'center',                 // 水平安放位置，默认为左对齐，可选为：
             // 'center' ¦ 'left' ¦ 'right'
@@ -41,7 +60,7 @@ export default {
           tooltip : { trigger: 'axis' },
           //图例--折线提示提示
           legend: {
-              x: '720px',
+              x: '91%',
               y: '0',
               borderColor: '#6699FF',//边框颜色
               textStyle: {
@@ -77,51 +96,91 @@ export default {
             ],
             series : [{
               type:'line',
-              name:'2007年',
+              name:'杭州市',
               data:[]
             },{
               type:'line',
-              name:'2008年',
+              name:'宁波市',
               data:[]
             },{
               type:'line',
-              name:'2009年',
+              name:'嘉兴市',
                 data:[]
             },{
               type:'line',
-              name:'2010年',
+              name:'湖州市',
               data:[]
             },{
               type:'line',
-              name:'2011年',
+              name:'绍兴市',
               data:[]
             },{
               type:'line',
-              name:'2012年',
+              name:'舟山市',
               data:[]
             },{
               type:'line',
-              name:'2013年',
+              name:'温州市',
                 data:[]
             },{
               type:'line',
-              name:'2014年',
+              name:'金华市',
               data:[]
             },{
               type:'line',
-              name:'2015年',
+              name:'义乌市',
               data:[]
             },{
               type:'line',
-              name:'2016年',
+              name:'衢州市',
               data:[]
             },{
               type:'line',
-              name:'2017年',
+              name:'台州市',
+                data:[]
+            },{
+              type:'line',
+              name:'丽水市',
                 data:[]
             }
           ]
       },
+      option2: {
+        title : {
+          text: '2017 年浙江省各地级市生产总量比例',
+          subtext: '单位%',
+          x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            type: 'scroll',
+            orient: 'vertical',
+            right: 10,
+            top: 20,
+            bottom: 20,
+            data: [],
+            selected: {}
+        },
+        series : [
+            {
+                name: '城市名',
+                type: 'pie',
+                radius : '55%',
+                center: ['40%', '50%'],
+                data: [],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+      }
     }
   },
   methods: {
@@ -163,76 +222,119 @@ export default {
         });
     },
     initChart1() {
-      for (var i = 0; i < this.city.length; i++) {
-        this.option.xAxis.data.push(this.city[i]);
-      }
       for (var i = 0; i < this.years.length; i++) {
-        this.option.legend.data.push(this.years[i]+'年');
+        this.option1.xAxis.data.push(this.years[i] + '年');
+      }
+      for (var i = 0; i < this.city.length; i++) {
+        this.option1.legend.data.push(this.city[i]);
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2007" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[0].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "杭州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[0].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2008" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[1].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "宁波市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[1].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2009" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[2].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "嘉兴市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[2].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2010" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[3].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "湖州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[3].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2011" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[4].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "绍兴市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[4].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2012" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[5].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "舟山市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[5].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2013" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[6].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "温州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[6].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2014" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[7].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "金华市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[7].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2015" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[8].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "其中：义乌市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[8].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2016" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[9].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "衢州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[9].data.push(this.financial_data[i].gdp);
         }
       }
       for (var i = 0; i < this.financial_data.length; i++) {
-        if (this.financial_data[i].year == "2017" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
-          this.option.series[10].data.push(this.financial_data[i].gdp);
+        if (this.financial_data[i].city == "台州市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[10].data.push(this.financial_data[i].gdp);
+        }
+      }
+      for (var i = 0; i < this.financial_data.length; i++) {
+        if (this.financial_data[i].city == "丽水市" && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          this.option1.series[11].data.push(this.financial_data[i].gdp);
         }
       }
       this.chart = this.$echarts.init(this.$refs.echart1);
       // 把配置和数据放这里
-      this.chart.setOption(this.option)
+      this.chart.setOption(this.option1);
+      this.genData();
+      console.log(this.selected);
+      this.chart = this.$echarts.init(this.$refs.echart2);
+      // 把配置和数据放这里
+      this.chart.setOption(this.option2);
     },
     beforeDestroy() {
       if (!this.chart) { return }
         this.chart.dispose();
         this.chart = null;
     },
+    genData() {
+      this.legendData = this.city;
+      this.seriesData = [];
+      this.selected = {};
+      var values = [];
+      for (var i = 0; i < this.financial_data.length; i++) {
+        if (this.financial_data[i].year == this.year && this.financial_data[i].city != "浙东北" && this.financial_data[i].city != "浙西南") {
+          values.push(this.financial_data[i].gdp);
+        }
+      }
+      for (var i = 0; i < this.legendData.length; i++) {
+          var temp = this.legendData[i];
+          this.seriesData.push({
+              name: this.legendData[i],
+              value: values[i]
+          });
+          this.selected[temp] = 1;
+      }
+      this.option2.legend.data = this.legendData;
+      this.option2.legend.selected = this.selected;
+      this.option2.series[0].data = this.seriesData;
+    },
+    handleChange(e) {
+      this.year = e.target.value;
+      this.option2.title.text = this.year + " 年浙江省各地级市生产总量比例";
+      this.genData();
+      this.chart = this.$echarts.init(this.$refs.echart2);
+      // 把配置和数据放这里
+      this.chart.setOption(this.option2);
+    }
+  },
+  computed: {
+
   }
 
 }
