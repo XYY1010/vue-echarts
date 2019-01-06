@@ -36,8 +36,8 @@ export default {
             },
             text: '2007-2017年宁波、杭州、绍兴、金华、温州、嘉兴等市人均生产总值'
           },
-          color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
-                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0', '#191970'],
+          color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed', '#8B4726',
+                  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#69e0d0', '#8B8B00'],
           tooltip : { trigger: 'axis' },
           //图例--折线提示提示
           legend: {
@@ -126,6 +126,157 @@ export default {
             }
           ]
       },
+      option2: {
+        baseOption: {
+          timeline: {
+            axisType: 'category',
+            autoPlay: true,
+            playInterval: 1000,
+            data: [],
+            label: {
+                formatter : function(s) {
+                    return (new Date(s)).getFullYear();
+                }
+            }
+        },
+        title: {
+            text: '浙江省各地级市人均生产总值比例',
+            subtext: '单位：亿元'
+        },
+        color: ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed', '#8B4726',
+                '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0', '#8B8B00'],
+        tooltip: {
+        },
+        legend: {
+            x: '40%',
+            data: [],
+            selected: {
+            }
+        },
+        calculable : true,
+        series: [
+            {
+                name: '人均 GDP 占比',
+                type: 'pie',
+                center: ['50%', '50%'],
+                radius: '50%',
+                z: 100
+            }
+        ]
+    },
+    options: [
+      {
+         title: {text: '2007年浙江省各地级市人均生产总值比例'},
+         series: [
+             {data: [
+                 {name: '第一产业', value: 30},
+                 {name: '第二产业', value: 30},
+                 {name: '第三产业', value: 40}
+             ]}
+         ]
+     },
+     {
+        title: {text: '2008年浙江省各地级市人均生产总值比例'},
+        series: [
+            {data: [
+                {name: '第一产业', value: 30},
+                {name: '第二产业', value: 30},
+                {name: '第三产业', value: 40}
+            ]}
+        ]
+    },
+    {
+       title: {text: '2009年浙江省各地级市人均生产总值比例'},
+       series: [
+           {data: [
+               {name: '第一产业', value: 30},
+               {name: '第二产业', value: 30},
+               {name: '第三产业', value: 40}
+           ]}
+       ]
+   },
+   {
+      title: {text: '2010年浙江省各地级市人均生产总值比例'},
+      series: [
+          {data: [
+              {name: '第一产业', value: 30},
+              {name: '第二产业', value: 30},
+              {name: '第三产业', value: 40}
+          ]}
+      ]
+  },
+  {
+     title: {text: '2011年浙江省各地级市人均生产总值比例'},
+     series: [
+         {data: [
+             {name: '第一产业', value: 30},
+             {name: '第二产业', value: 30},
+             {name: '第三产业', value: 40}
+         ]}
+     ]
+ },
+ {
+    title: {text: '2012年浙江省各地级市人均生产总值比例'},
+    series: [
+        {data: [
+            {name: '第一产业', value: 30},
+            {name: '第二产业', value: 30},
+            {name: '第三产业', value: 40}
+        ]}
+    ]
+},
+{
+   title: {text: '2013年浙江省各地级市人均生产总值比例'},
+   series: [
+       {data: [
+           {name: '第一产业', value: 30},
+           {name: '第二产业', value: 30},
+           {name: '第三产业', value: 40}
+       ]}
+   ]
+},
+{
+   title: {text: '2014年浙江省各地级市人均生产总值比例'},
+   series: [
+       {data: [
+           {name: '第一产业', value: 30},
+           {name: '第二产业', value: 30},
+           {name: '第三产业', value: 40}
+       ]}
+   ]
+},
+{
+   title: {text: '2015年浙江省各地级市人均生产总值比例'},
+   series: [
+       {data: [
+           {name: '第一产业', value: 30},
+           {name: '第二产业', value: 30},
+           {name: '第三产业', value: 40}
+       ]}
+   ]
+},
+{
+   title: {text: '2016年浙江省各地级市人均生产总值比例'},
+   series: [
+       {data: [
+           {name: '第一产业', value: 30},
+           {name: '第二产业', value: 30},
+           {name: '第三产业', value: 40}
+       ]}
+   ]
+},
+{
+   title: {text: '2017年浙江省各地级市人均生产总值比例'},
+   series: [
+       {data: [
+           {name: '第一产业', value: 30},
+           {name: '第二产业', value: 30},
+           {name: '第三产业', value: 40}
+       ]}
+   ]
+}
+    ]
+    }
     }
   },
   methods: {
@@ -235,7 +386,23 @@ export default {
       }
       this.chart = this.$echarts.init(this.$refs.echart1);
       // 把配置和数据放这里
-      this.chart.setOption(this.option1)
+      this.chart.setOption(this.option1);
+
+      this.option2.baseOption.timeline.data = this.years;
+      this.option2.baseOption.legend.data = this.city;
+      for (var i = 0; i < this.years.length; i++) {
+        this.option2.options[i].series[0].data = [];
+        var cnt = 0;
+        for (var j = 0; j < this.financial_data.length; j++) {
+          if (this.financial_data[j].year == this.years[i] && this.financial_data[j].city != "浙东北" && this.financial_data[j].city != "浙西南") {
+            this.option2.options[i].series[0].data.push({name: this.city[cnt], value: parseFloat(this.financial_data[j].gdp_average)});
+            cnt++;
+          }
+        }
+      }
+      this.chart = this.$echarts.init(this.$refs.echart2);
+      // 把配置和数据放这里
+      this.chart.setOption(this.option2);
     },
     beforeDestroy() {
       if (!this.chart) { return }
