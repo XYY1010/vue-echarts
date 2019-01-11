@@ -22,4 +22,9 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# 数据可视化大作业——宏观经济可视化系统
+### 作业内容（三选一）：
+![ProjectRequirement](static/img/requirement.jpeg)
+
+### 最终效果 Demo：
+![ProjectRequirement](static/img/demo.gif)
