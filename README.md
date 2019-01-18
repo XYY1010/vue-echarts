@@ -28,3 +28,4 @@ npm run build --report
 
 ### 最终效果 Demo：
 ![ProjectRequirement](static/img/demo.gif)
+<iframe width="560" height="315" src="https://www.bilibili.com/video/av41022500/" frameborder="0" allowfullscreen></iframe>
